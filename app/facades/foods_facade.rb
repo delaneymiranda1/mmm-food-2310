@@ -1,17 +1,16 @@
-
 class FoodsFacade
+  attr_reader :ingredient
+  def initialize(ingredient)
+    @ingredient = ingredient
+  end
 
-  def foods(query)
-    service = FoodsService.new
-    json = service.get_foods_search(query)
-    total_items = json[:totalHits]
-
-    foods_data = json[:foods].first(10)
+  def food_search
+    foods_data = FoodsService.new
     
-    foods = foods_data.map { |food_data| Food.new(food_data) }
-    { total_items: total_items, foods: foods }
+    json = foods_data.get_foods_search(ingredient)
+    json[:foods].map do |food_data| 
+      Food.new(food_data)
+    end
     
   end
-  
-
 end

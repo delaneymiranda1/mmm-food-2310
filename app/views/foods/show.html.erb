@@ -1,0 +1,14 @@
+<h1>Foods containing "sweet potato"</h1>
+
+<p>Total number of items returned by the search: <%= @foods.size %></p>
+
+<ul>
+  <% @foods.each do |food| %>
+    <section class="food">
+      <p>GTIN/UPC code: <%= food.gtin_upc %></p>
+      <p>Description: <%= food.description %></p>
+      <p>Brand Owner: <%= food.brand_owner %></p>
+      <p>Ingredients: <%= food.ingredients %></p>
+    </section>
+  <% end %>
+</ul>

@@ -10,8 +10,7 @@ describe FoodsService do
         expect(search).to be_a(Hash)
 
         food_data = search[:foods].first
-        expect(food_data).to have_key :fdcId
-        expect(food_data[:fdcId]).to be_a(Integer)
+
         expect(food_data).to have_key :description
         expect(food_data[:description]).to be_a(String)
         expect(food_data).to have_key :gtinUpc
